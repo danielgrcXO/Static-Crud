@@ -17,11 +17,13 @@ export default function CrudApp({title}){
     //state
     const [db, setDb] = useState(artistDb);
 
+    //html
     return(
         <div>
             <h1>{title}</h1>
             
             <CrudFormAdd data={db} setDb={setDb} initialState={artistDb}/>
+            <CrudFromUpdate data={db} setDb={setDb}/>
           
             <CrudTable data={db} setDb={setDb}/>
         </div>

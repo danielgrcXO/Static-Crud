@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CrudFromUpdate from './CrudFormUpdate';
+
 
 export default function CrudFormAdd({data,setDb,initialState}){
     
@@ -31,6 +31,7 @@ export default function CrudFormAdd({data,setDb,initialState}){
         setDb(initialState);
     }
 
+    //html
     return(
     <div>
         <h3>Introduce a new artist</h3>
@@ -42,6 +43,6 @@ export default function CrudFormAdd({data,setDb,initialState}){
             <input type='submit' value='Add'></input>
             <input type='reset' value='Reset' onClick={handleReset}></input>
         </form>
-
     </div>);
+
 }
