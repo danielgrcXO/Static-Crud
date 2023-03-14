@@ -1,4 +1,5 @@
 import React from "react";
+import Button from 'react-bootstrap/Button';
 
 export default function CrudTableRow({id,name,song,remove}){
     
@@ -8,7 +9,7 @@ export default function CrudTableRow({id,name,song,remove}){
             <td>{name}</td>
             <td>{song}</td>
             <td>
-            <button onClick={(e) => remove(e,id)}>Delete</button>
+                <Button variant="outline-danger" onClick={(e) => remove(e,id)}>Delete</Button>{' '}
             </td>
         </tr>
     ); 

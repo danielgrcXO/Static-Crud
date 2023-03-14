@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import CrudFormAdd from './crudComponents/CrudFormAdd';
 import CrudFromUpdate from './crudComponents/CrudFormUpdate';
 import CrudTable from './crudComponents/CrudTable';
+import styles from './crudStyles/formFather.module.css';
 
 //database simulated
 const artistDb = [
@@ -12,7 +13,7 @@ const artistDb = [
 ];
 
 
-export default function CrudApp({title}){
+export default function CrudApp(){
 
     //state
     const [db, setDb] = useState(artistDb);
@@ -20,17 +21,12 @@ export default function CrudApp({title}){
     //html
     return(
         <div>
-            <h1>{title}</h1>
-            
-            <CrudFormAdd data={db} setDb={setDb} initialState={artistDb}/>
-            <CrudFromUpdate data={db} setDb={setDb}/>
-          
+            <div className='d-flex justify-content-center align-items-center'>
+                <CrudFormAdd data={db} setDb={setDb} initialState={artistDb}/>
+                <CrudFromUpdate data={db} setDb={setDb}/>
+            </div>
             <CrudTable data={db} setDb={setDb}/>
         </div>
     );
 }
 
-
-CrudApp.defaultProps = {
-    title : 'CRUD APP'
-}

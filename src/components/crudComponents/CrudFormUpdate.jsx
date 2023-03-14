@@ -1,5 +1,9 @@
 import React, {useState} from 'react';
+import styles from '../crudStyles/formUpdate.module.css';
 
+//bootstrap styles
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 function Option({value}){
     return(
@@ -43,18 +47,28 @@ export default function CrudFromUpdate({title,data,setDb}){
        
     //html
     return(
-        <div>
-            <h3>{title}</h3>
+        <div className={styles.divUpdate}>
+            <h4 className="text-center mt-4">{title}</h4>
             <form onSubmit={handleSubmit}>
 
-                <label htmlFor="id">ID:</label>
-                <select id="id" name="id" onChange={handleFormUpdate}>
-                    {data.map((el) => <Option key={el.id} value={el.id}>{el.id} </Option>)}  
-                </select>
+                <label htmlFor="id">ID : </label>
+                <Form.Select id="id" name="id" onChange={handleFormUpdate}>
+                    {data.map((el) => <Option key={el.id} value={el.id}>{el.id} </Option>)} 
+                </Form.Select>
 
-                <input type="text" name='name' placeholder="Write a new name" value={newForm.name} onChange={handleChange}></input>
-                <input type="text" name='song' placeholder="Write a new song" value={newForm.song} onChange={handleChange}></input>
-                <input type='submit' value='Update'></input>
+                <Form.Group className="mb-3">
+                    <Form.Label>Artist's Name</Form.Label>
+                    <Form.Control type="text" name='name' placeholder="New name" value={newForm.name} onChange={handleChange} />
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                    <Form.Label>Artist's Song</Form.Label>
+                    <Form.Control type="text" name='song' placeholder="Write a new song" value={newForm.song} onChange={handleChange} />
+                </Form.Group>
+
+                <Button variant="outline-success"  type='submit'>Update</Button>{' '}
+    
+               
             </form>
         </div>
     );
